@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Talish Bukhari</title>
+
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- @vite(['resources/css/app.css', 'resources/js/app.js']) -->
+
+</head>
+
+<body style="font-family: 'MV Boli';" class="text-gray-700 bg-gradient-to-b from-cyan-800 to-cyan-950">
+    <div class="text-white bg-dark" x-data="{ mobileMenuOpen: false }">
+
+        <!-- Header -->
+        <div x-data="{ isSticky: false }" class="fixed top-0 left-0 right-0 z-50 backdrop-blur-sm bg-transparent"
+            x-on:scroll.window="isSticky = window.scrollY > 60"
+            :class="{ 'bg-dark': isSticky, 'bg-transparent': !isSticky }">
+            <nav class="container px-6 py-4 mx-auto">
+                <div class="flex items-center justify-between">
+                    <a href="/" class="text-2xl font-bold text-primary">Talish Bukhari</a>
+                    <div class="hidden space-x-8 md:flex">
+                        <button type="button" class="transition hover:text-primary hover:scale-110 active:scale-95"
+                            @click.prevent="document.querySelector('#home').scrollIntoView({ behavior: 'smooth' })">
+                            Home
+                        </button>
+                        <button type="button" class="transition hover:text-primary hover:scale-110 active:scale-95"
+                            @click.prevent="document.querySelector('#about').scrollIntoView({ behavior: 'smooth' })">
+                            About
+                        </button>
+                        <button type="button" class="transition hover:text-primary hover:scale-110 active:scale-95"
+                            @click.prevent="document.querySelector('#experiences').scrollIntoView({ behavior: 'smooth' })">
+                            Experiences
+                        </button>
+                        <button type="button" class="transition hover:text-primary hover:scale-110 active:scale-95"
+                            @click.prevent="document.querySelector('#projects').scrollIntoView({ behavior: 'smooth' })">
+                            Projects
+                        </button>
+                        <button type="button" class="transition hover:text-primary hover:scale-110 active:scale-95"
+                            @click.prevent="document.querySelector('#contact').scrollIntoView({ behavior: 'smooth' })">
+                            Contact
+                        </button>
+                    </div>
+                    <button @click="mobileMenuOpen = !mobileMenuOpen" class="md:hidden text-primary">
+                        <template x-if="!mobileMenuOpen">
+                            <svg class="size-7" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="4" x2="20" y1="12" y2="12"></line>
+                                <line x1="4" x2="20" y1="6" y2="6"></line>
+                                <line x1="4" x2="20" y1="18" y2="18"></line>
+                            </svg>
+                        </template>
+                        <template x-if="mobileMenuOpen">
+                            <svg class="size-7" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M18 6 6 18"></path>
+                                <path d="m6 6 12 12"></path>
+                            </svg>
+                        </template>
+                    </button>
+                </div>
+            </nav>
+            <!-- Mobile Menu -->
+            <div x-show="mobileMenuOpen" x-clock x-collapse.duration.500ms class="py-2 shadow md:hidden bg-dark">
+                <button type="button"
+                    class="block px-6 py-2 transition-colors hover:bg-dark-secondary hover:text-primary"
+                    @click.prevent="document.querySelector('#home').scrollIntoView({ behavior: 'smooth' })">
+                    Home
+                </button>
+                <button type="button"
+                    class="block px-6 py-2 transition-colors hover:bg-dark-secondary hover:text-primary"
+                    @click.prevent="document.querySelector('#about').scrollIntoView({ behavior: 'smooth' })">
+                    About
+                </button>
+                <button type="button"
+                    class="block px-6 py-2 transition-colors hover:bg-dark-secondary hover:text-primary"
+                    @click.prevent="document.querySelector('#experiences').scrollIntoView({ behavior: 'smooth' })">
+                    Experiences
+                </button>
+                <button type="button"
+                    class="block px-6 py-2 transition-colors hover:bg-dark-secondary hover:text-primary"
+                    @click.prevent="document.querySelector('#projects').scrollIntoView({ behavior: 'smooth' })">
+                    Projects
+                </button>
+                <button type="button"
+                    class="block px-6 py-2 transition-colors hover:bg-dark-secondary hover:text-primary"
+                    @click.prevent="document.querySelector('#contact').scrollIntoView({ behavior: 'smooth' })">
+                    Contact
+                </button>
+            </div>
+
+        </div>
+
+        <!-- Home Section -->
+        <div id="home">
+
+            <div
+                class="flex overflow-hidden relative justify-center items-center min-h-screen bg-gradient-to-b from-cyan-800 to-black/20">
+                <div class="absolute inset-0 z-0">
+                    <div class="absolute inset-0 opacity-90 bg-dark"></div>
+                    <div class="absolute inset-0 opacity-20 bg-gradient-to-r from-primary to-[#3182ce] blur-3xl"></div>
+                </div>
+                <div class="container z-10 px-6 mx-auto">
+                    <div class="flex flex-col justify-between items-center mt-24 md:mt-0 md:flex-row">
+                        <div class="text-center md:w-1/2 md:text-left">
+                            <h1 class="mb-4 text-5xl font-bold md:text-7xl">Talish Bukhari</h1>
+                            <h2 class="mb-8 text-2xl md:text-3xl text-primary">Full Stack Developer</h2>
+                            <h3 class="mb-12 max-w-2xl text-xl">
+                                Crafting digital experiences that blend creativity with cutting-edge technology.
+                                Transforming ideas into powerful, scalable solutions.
+                            </h3>
+                            <a href="#contact"
+                                class="bg-primary hover:scale-105 active:scale-95 text-dark font-bold py-3 px-8 rounded-full inline-block hover:bg-[#3ac0b4] duration-300">
+                                Let's Collaborate
+                            </a>
+                        </div>
+                        <div class="relative mt-12 w-full h-80 sm:h-96 md:w-1/2 md:mt-0">
+                            <div
+                                class="flex absolute top-0 left-0 justify-center items-center rounded-lg size-36 sm:size-40 bg-primary">
+                                <svg class="size-24 text-dark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <polyline points="16 18 22 12 16 6"></polyline>
+                                    <polyline points="8 6 2 12 8 18"></polyline>
+                                </svg>
+                            </div>
+                            <div
+                                class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 size-40 sm:size-48 bg-[#3182ce] rounded-full flex items-center justify-center">
+                                <svg class="size-24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+                                    <path d="M3 5V19A9 3 0 0 0 21 19V5"></path>
+                                    <path d="M3 12A9 3 0 0 0 21 12"></path>
+                                </svg>
+                            </div>
+                            <div
+                                class="absolute bottom-0 right-0 size-32 sm:size-36 bg-[#9f7aea] rounded-lg flex items-center justify-center">
+                                <svg class="size-24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <rect width="20" height="8" x="2" y="2" rx="2" ry="2"></rect>
+                                    <rect width="20" height="8" x="2" y="14" rx="2" ry="2"></rect>
+                                    <line x1="6" x2="6.01" y1="6" y2="6"></line>
+                                    <line x1="6" x2="6.01" y1="18" y2="18"></line>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- About Section -->
+        <div id="about">
+
+            <div class="py-20 bg-gradient-to-b from-black/20 to-black/50">
+                <div class="container px-6 mx-auto">
+                    <h2 class="mb-12 text-4xl font-bold text-center">About Me</h2>
+                    <div class="flex flex-col items-center justify-between lg:flex-row">
+                        <div class="mb-8 lg:w-1/3 lg:mb-0">
+                            <div class="relative">
+                                <img class="w-full h-auto rounded-lg"
+                                    src="https://media.licdn.com/dms/image/v2/D4E03AQE3XyjK8fg0AQ/profile-displayphoto-crop_800_800/B4EZmLFodHKUAI-/0/1758975134646?e=1763596800&v=beta&t=sj8DL4Mf4Ztw04tOb1mfJgfeyXRZ0_8ECSNojruDlY8"
+                                    alt="Talish Bukhari">
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-l from-yellow-200 via-sky-100 to-[#3182ce] opacity-10 rounded-lg">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="lg:w-2/3 lg:pl-12">
+
+                            <h3 class="mb-4 text-2xl font-semibold text-primary">
+                                Passionate about building clean, fast, and challenging web solutions.
+                            </h3>
+
+                            <p class="mb-6 text-lg">
+                                With a little over 3 years of experience in the TALL stack
+                                (Tailwind, Alpine.js, Laravel, and Livewire)
+                                I love building web apps that look great
+                                and work even better. I enjoy blending creativity with
+                                code to craft smooth and intuitive user experiences.
+                            </p>
+                            <p class="mb-6 text-lg">
+                                I’m always eagar to learn something new. Recently, wanted to dive into
+                                React and Vue so that my UI/UX skills will enhance like backend.
+                                <br>
+                                If you like clean code, simple design, and no
+                                unnecessary complexity — we’ll probably get along.
+                            </p>
+
+                            <div class="mb-8">
+                                <h4 class="mb-4 text-xl font-semibold">Core Competencies:</h4>
+
+                                <div x-data="{ skills: ['PHP','Laravel','Livewire','Alpine.js','Tailwind CSS','MySQL'] }"
+                                    class="flex flex-wrap max-w-2xl gap-4 mb-4">
+                                    <template x-for="skill in skills" :key="skill">
+                                        <p class="px-4 py-2 text-center text-sm border transition rounded-full bg-dark-secondary hover:bg-primary hover:text-dark text-primary hover:scale-110 whitespace-nowrap"
+                                            x-text="skill">
+                                        </p>
+                                    </template>
+                                </div>
+
+                                <div x-data="{ skills: [ 'API Integrations', 'Stripe', 'Signalwire', 'Twilio', 'Assembly AI' ] }"
+                                    class="flex flex-wrap max-w-2xl gap-4 mb-4">
+                                    <template x-for="skill in skills" :key="skill">
+                                        <p class="px-4 py-2 text-center text-sm border transition rounded-full bg-dark-secondary hover:bg-primary hover:text-dark text-primary hover:scale-110 whitespace-nowrap"
+                                            x-text="skill">
+                                        </p>
+                                    </template>
+                                </div>
+
+                                <div x-data="{ skills: [ 'ApexCharts','ChartsJS' ] }"
+                                    class="flex flex-wrap max-w-2xl gap-4">
+                                    <template x-for="skill in skills" :key="skill">
+                                        <p class="px-4 py-2 text-center text-sm border transition rounded-full bg-dark-secondary hover:bg-primary hover:text-dark text-primary hover:scale-110 whitespace-nowrap"
+                                            x-text="skill">
+                                        </p>
+                                    </template>
+                                </div>
+
+                            </div>
+
+                            <!-- <a href="#projects" class="inline-flex items-center text-primary hover:underline"> -->
+                            <!-- View My Projects -->
+                            <!-- </a> -->
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Experiences Section -->
+        <div id="experiences">
+
+            <div class="py-20 bg-gradient-to-b from-black/50 to-black/20">
+                <div class="container px-6 mx-auto">
+                    <h2 x-data="{ visible: false }" x-init="visible = true"
+                        x-bind:class="{ 'translate-y-0 opacity-100': visible, 'translate-y-4 opacity-0': !visible }"
+                        class="mb-12 text-4xl font-bold text-center text-white transition-all duration-500 translate-y-0 opacity-100">
+                        Experiences
+                    </h2>
+
+                    <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+
+                        <!--[if BLOCK]><![endif]-->
+                        <div x-data="{ hovered: false }" x-on:mouseenter="hovered = true"
+                            x-on:mouseleave="hovered = false"
+                            class="bg-dark p-6 rounded-lg hover:shadow-lg transition-shadow relative overflow-hidden">
+
+                            <div :class="hovered ? 'scale-110 rotate-6' : 'scale-100 rotate-0'"
+                                class="text-primary mb-4 text-3xl transition-transform duration-300 scale-100 rotate-0">
+
+                                <svg class="size-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <polyline points="16 18 22 12 16 6"></polyline>
+                                    <polyline points="8 6 2 12 8 18"></polyline>
+                                </svg>
+
+                            </div>
+
+                            <h3 class="mb-2 text-xl font-semibold text-white">
+                                Web Development
+                            </h3>
+
+                            <p class="text-gray-400">
+                                Built and worked on many projects using Laravel + Livewire as a string backend base.
+                            </p>
+
+                            <div x-show="hovered"
+                                class="absolute inset-0 bg-gradient-to-r from-primary to-[#3182ce] opacity-15"
+                                style="display: none;">
+                            </div>
+                        </div>
+
+                        <div x-data="{ hovered: false }" x-on:mouseenter="hovered = true"
+                            x-on:mouseleave="hovered = false"
+                            class="bg-dark p-6 rounded-lg hover:shadow-lg transition-shadow relative overflow-hidden">
+                            <div :class="hovered ? 'scale-110 rotate-6' : 'scale-100 rotate-0'"
+                                class="text-primary mb-4 text-3xl transition-transform duration-300 scale-100 rotate-0">
+                                <svg class="size-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <rect width="14" height="20" x="5" y="2" rx="2" ry="2"></rect>
+                                    <path d="M12 18h.01"></path>
+                                </svg>
+                            </div>
+                            <h3 class="mb-2 text-xl font-semibold text-white">
+                                Attractive & Professional Design
+                            </h3>
+                            <p class="text-gray-400">
+                                Crafted fluid layouts and implemented analytics dashboards using Tailwind CSS +
+                                Alpine.js + Chart JS + Apex Charts
+                            </p>
+                            <div x-show="hovered"
+                                class="absolute inset-0 bg-gradient-to-r from-primary to-[#3182ce] opacity-15"
+                                style="display: none;">
+                            </div>
+                        </div>
+
+                        <div x-data="{ hovered: false }" x-on:mouseenter="hovered = true"
+                            x-on:mouseleave="hovered = false"
+                            class="bg-dark p-6 rounded-lg hover:shadow-lg transition-shadow relative overflow-hidden">
+                            <div :class="hovered ? 'scale-110 rotate-6' : 'scale-100 rotate-0'"
+                                class="text-primary mb-4 text-3xl transition-transform duration-300 scale-100 rotate-0">
+                                <svg class="size-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <circle cx="8" cy="21" r="1"></circle>
+                                    <circle cx="19" cy="21" r="1"></circle>
+                                    <path
+                                        d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12">
+                                    </path>
+                                </svg>
+                            </div>
+                            <h3 class="mb-2 text-xl font-semibold text-white">
+                                Payment Integrations
+                            </h3>
+                            <p class="text-gray-400">
+                                Built and worked on web apps which has secure and efficient payment integration
+                                (specially Stripe).
+                            </p>
+                            <div x-show="hovered"
+                                class="absolute inset-0 bg-gradient-to-r from-primary to-[#3182ce] opacity-15"
+                                style="display: none;">
+                            </div>
+                        </div>
+
+                        <div x-data="{ hovered: false }" x-on:mouseenter="hovered = true"
+                            x-on:mouseleave="hovered = false"
+                            class="bg-dark p-6 rounded-lg hover:shadow-lg transition-shadow relative overflow-hidden">
+                            <div :class="hovered ? 'scale-110 rotate-6' : 'scale-100 rotate-0'"
+                                class="text-primary mb-4 text-3xl transition-transform duration-300 scale-100 rotate-0">
+                                <svg class="size-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path
+                                        d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z">
+                                    </path>
+                                </svg>
+                            </div>
+                            <h3 class="mb-2 text-xl font-semibold text-white">
+                                Performance Optimization
+                            </h3>
+                            <p class="text-gray-400">
+                                Enhanced application speed and efficiency for a smooth user experience.
+                            </p>
+                            <div x-show="hovered"
+                                class="absolute inset-0 bg-gradient-to-r from-primary to-[#3182ce] opacity-15"
+                                style="display: none;">
+                            </div>
+                        </div>
+
+                        <div x-data="{ hovered: false }" x-on:mouseenter="hovered = true"
+                            x-on:mouseleave="hovered = false"
+                            class="bg-dark p-6 rounded-lg hover:shadow-lg transition-shadow relative overflow-hidden">
+                            <div :class="hovered ? 'scale-110 rotate-6' : 'scale-100 rotate-0'"
+                                class="text-primary mb-4 text-3xl transition-transform duration-300 scale-100 rotate-0">
+                                <svg class="size-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+                                    <path d="M3 5V19A9 3 0 0 0 21 19V5"></path>
+                                    <path d="M3 12A9 3 0 0 0 21 12"></path>
+                                </svg>
+                            </div>
+                            <h3 class="mb-2 text-xl font-semibold text-white">
+                                Database Management
+                            </h3>
+                            <p class="text-gray-400">
+                                Designed and maintained efficient, scalable database structures Optimized backend
+                                performance using queues, caching, and efficient DB & Eloquent queries.
+                            </p>
+                            <div x-show="hovered"
+                                class="absolute inset-0 bg-gradient-to-r from-primary to-[#3182ce] opacity-15"
+                                style="display: none;">
+                            </div>
+                        </div>
+                        <div x-data="{ hovered: false }" x-on:mouseenter="hovered = true"
+                            x-on:mouseleave="hovered = false"
+                            class="bg-dark p-6 rounded-lg hover:shadow-lg transition-shadow relative overflow-hidden">
+                            <div :class="hovered ? 'scale-110 rotate-6' : 'scale-100 rotate-0'"
+                                class="text-primary mb-4 text-3xl transition-transform duration-300 scale-100 rotate-0">
+                                <svg class="size-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <line x1="12" x2="12" y1="20" y2="10"></line>
+                                    <line x1="18" x2="18" y1="20" y2="4"></line>
+                                    <line x1="6" x2="6" y1="20" y2="16"></line>
+                                </svg>
+                            </div>
+                            <h3 class="mb-2 text-xl font-semibold text-white">
+                                API Integrations
+                            </h3>
+                            <p class="text-gray-400">
+                                Integrated many third-party APIs with optimized speed and accuracy.
+                            </p>
+                            <div x-show="hovered"
+                                class="absolute inset-0 bg-gradient-to-r from-primary to-[#3182ce] opacity-15"
+                                style="display: none;">
+                            </div>
+                        </div>
+                        <!--[if ENDBLOCK]><![endif]-->
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Projects Section -->
+        <div id="projects">
+
+            <div class="py-20 bg-gradient-to-b from-black/20 to-black/50">
+                <div class="container px-6 mx-auto">
+                    <h2 class="mb-12 text-4xl font-bold text-center text-white">
+                        Projects
+                        <span class="text-sm">(I was part of)</span>
+                    </h2>
+                    <div class="grid grid-cols-1 gap-8 md:grid-cols-2">
+
+
+                        <div
+                            class="relative overflow-hidden transition-shadow rounded-lg bg-dark-secondary hover:shadow-lg group">
+
+                            <div class="relative">
+                                <img src="https://placehold.co/1920x1080" alt="Learning Management System"
+                                    class="object-cover w-full h-48">
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-r from-primary to-[#3182ce] opacity-0 group-hover:opacity-70 transition-opacity duration-300">
+                                </div>
+                            </div>
+
+                            <div class="p-6">
+                                <h3 class="mb-2 text-xl font-semibold text-white">
+                                    <a href="https://developermithu.com/projects/learning-management-system"
+                                        class="hover:underline">Callink</a>
+                                </h3>
+
+                                <p class="mb-4 text-gray-400">
+                                    Contributed to the development of an all-in-one business management platform
+                                    integrating communications, and billing modules.
+                                    <br>
+                                    Worked on feature implementation, bug fixes, and performance improvements
+                                    across the Laravel and front-end stack.
+                                </p>
+
+                                <p class="mb-4 text-sm text-gray-300 underline underline-offset-2">
+                                    Sep 2022 - Feb 2023
+                                </p>
+
+                                <div class="flex flex-wrap gap-2">
+
+                                    <span
+                                        class="px-2 py-1 text-sm transition-transform duration-300 rounded-full bg-dark text-primary hover:scale-110 hover:bg-primary hover:text-dark">
+                                        Laravel
+                                    </span>
+                                    <span
+                                        class="px-2 py-1 text-sm transition-transform duration-300 rounded-full bg-dark text-primary hover:scale-110 hover:bg-primary hover:text-dark">
+                                        Booststrap
+                                    </span>
+
+                                </div>
+                            </div>
+                            <div
+                                class="absolute bottom-0 left-0 right-0 h-1 transition-transform duration-300 origin-left scale-x-0 bg-primary group-hover:scale-x-100">
+                            </div>
+                        </div>
+
+
+                        <div
+                            class="relative overflow-hidden transition-shadow rounded-lg bg-dark-secondary hover:shadow-lg group">
+                            <div class="relative">
+                                <img src="https://placehold.co/1920x1080" alt="E-Commerce Platform"
+                                    class="object-cover w-full h-48">
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-r from-primary to-[#3182ce] opacity-0 group-hover:opacity-70 transition-opacity duration-300">
+                                </div>
+                            </div>
+                            <div class="p-6">
+                                <h3 class="mb-2 text-xl font-semibold text-white">
+                                    <a href="https://developermithu.com/projects/e-commerce-platform"
+                                        class="hover:underline">CallScaler</a>
+                                </h3>
+
+                                <p class="mb-4 text-gray-400">
+                                    Contributed to the development of a high-volume call-tracking and
+                                    marketing attribution platform, featuring call routing/recording,
+                                    AI-driven transcriptions, spam blocking, automated email reports,
+                                    and client billing modules (Pay-Per-Call).
+                                    <br>
+                                    Collaborated with the team to build APIs and integrations that
+                                    helped agencies and businesses track inbound calls and messages
+                                    with precision.
+                                </p>
+
+                                <p class="mb-4 text-sm text-gray-300 underline underline-offset-2">
+                                    Feb 2023 - April 2024
+                                </p>
+
+                                <div class="flex flex-wrap gap-2">
+
+                                    <span
+                                        class="px-2 py-1 text-sm transition-transform duration-300 rounded-full bg-dark text-primary hover:scale-110 hover:bg-primary hover:text-dark">
+                                        Laravel
+                                    </span>
+                                    <span
+                                        class="px-2 py-1 text-sm transition-transform duration-300 rounded-full bg-dark text-primary hover:scale-110 hover:bg-primary hover:text-dark">
+                                        Livewire
+                                    </span>
+                                    <span
+                                        class="px-2 py-1 text-sm transition-transform duration-300 rounded-full bg-dark text-primary hover:scale-110 hover:bg-primary hover:text-dark">
+                                        Alpine JS
+                                    </span>
+                                    <span
+                                        class="px-2 py-1 text-sm transition-transform duration-300 rounded-full bg-dark text-primary hover:scale-110 hover:bg-primary hover:text-dark">
+                                        Tailwind CSS
+                                    </span>
+
+                                </div>
+                            </div>
+                            <div
+                                class="absolute bottom-0 left-0 right-0 h-1 transition-transform duration-300 origin-left scale-x-0 bg-primary group-hover:scale-x-100">
+                            </div>
+                        </div>
+
+
+                        <div
+                            class="relative overflow-hidden transition-shadow rounded-lg bg-dark-secondary hover:shadow-lg group">
+
+                            <div class="relative">
+                                <img src="https://placehold.co/1920x1080" alt="Portfolio Website"
+                                    class="object-cover w-full h-48">
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-r from-primary to-[#3182ce] opacity-0 group-hover:opacity-70 transition-opacity duration-300">
+                                </div>
+                            </div>
+
+                            <div class="p-6">
+                                <h3 class="mb-2 text-xl font-semibold text-white">
+                                    <a href="https://developermithu.com/projects/portfolio-website"
+                                        class="hover:underline">Highlighted AI</a>
+                                </h3>
+
+                                <p class="mb-4 text-gray-400">
+                                    Contributed to the development of a SaaS platform that tracks
+                                    how often brands appear in AI-assistant answers across models
+                                    like ChatGPT, Claude, Gemini etc. and enabling marketing teams
+                                    to measure “AI Visibility” for brands.
+                                    <br>
+                                    Worked on API integrations (OpenAI, OpenRouter, DataForSeo), dashboard features, and
+                                    data-visualisation modules for competitor-analysis
+                                    and client reporting.
+                                </p>
+
+                                <p class="mb-4 text-sm text-gray-300 underline underline-offset-2">
+                                    April 2024 - Feb 2025
+                                </p>
+
+                                <div class="flex flex-wrap gap-2">
+
+                                    <span
+                                        class="px-2 py-1 text-sm transition-transform duration-300 rounded-full bg-dark text-primary hover:scale-110 hover:bg-primary hover:text-dark">
+                                        Laravel
+                                    </span>
+                                    <span
+                                        class="px-2 py-1 text-sm transition-transform duration-300 rounded-full bg-dark text-primary hover:scale-110 hover:bg-primary hover:text-dark">
+                                        Livewire
+                                    </span>
+                                    <span
+                                        class="px-2 py-1 text-sm transition-transform duration-300 rounded-full bg-dark text-primary hover:scale-110 hover:bg-primary hover:text-dark">
+                                        Alpine JS
+                                    </span>
+                                    <span
+                                        class="px-2 py-1 text-sm transition-transform duration-300 rounded-full bg-dark text-primary hover:scale-110 hover:bg-primary hover:text-dark">
+                                        Tailwind CSS
+                                    </span>
+
+                                </div>
+                            </div>
+                            <div
+                                class="absolute bottom-0 left-0 right-0 h-1 transition-transform duration-300 origin-left scale-x-0 bg-primary group-hover:scale-x-100">
+                            </div>
+                        </div>
+
+
+
+                        <div
+                            class="relative overflow-hidden transition-shadow rounded-lg bg-dark-secondary hover:shadow-lg group">
+                            <div class="relative">
+                                <img src="https://placehold.co/1920x1080" alt="Real-Time Chat Application"
+                                    class="object-cover w-full h-48">
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-r from-primary to-[#3182ce] opacity-0 group-hover:opacity-70 transition-opacity duration-300">
+                                </div>
+                            </div>
+                            <div class="p-6">
+                                <h3 class="mb-2 text-xl font-semibold text-white">
+                                    <a href="https://developermithu.com/projects/real-time-chat-application"
+                                        class="hover:underline">
+                                        Call Tracking Application
+                                        <span class="text-xs ml-2">WIP (work in progress)</span>
+                                    </a>
+                                </h3>
+
+                                <p class="mb-4 text-gray-400">
+                                    Building a high-volume call-tracking and marketing attribution platform,
+                                    featuring call routing/recording, spam blocking, automated email reports,
+                                    and AI-driven transcriptions + AI filtered call-score and sentiment-analysis.
+                                    <br>
+                                    Working with the team to build this project and APIs and integrations that will
+                                    help agencies and businesses to track their campaigns in dedicated workspaces.
+                                </p>
+
+                                <div class="flex flex-wrap gap-2">
+
+                                    <span
+                                        class="px-2 py-1 text-sm transition-transform duration-300 rounded-full bg-dark text-primary hover:scale-110 hover:bg-primary hover:text-dark">
+                                        Laravel
+                                    </span>
+                                    <span
+                                        class="px-2 py-1 text-sm transition-transform duration-300 rounded-full bg-dark text-primary hover:scale-110 hover:bg-primary hover:text-dark">
+                                        Livewire
+                                    </span>
+                                    <span
+                                        class="px-2 py-1 text-sm transition-transform duration-300 rounded-full bg-dark text-primary hover:scale-110 hover:bg-primary hover:text-dark">
+                                        Alpine JS
+                                    </span>
+                                    <span
+                                        class="px-2 py-1 text-sm transition-transform duration-300 rounded-full bg-dark text-primary hover:scale-110 hover:bg-primary hover:text-dark">
+                                        Tailwind CSS
+                                    </span>
+
+                                </div>
+
+                            </div>
+                            <div
+                                class="absolute bottom-0 left-0 right-0 h-1 transition-transform duration-300 origin-left scale-x-0 bg-primary group-hover:scale-x-100">
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Contact Section -->
+        <div id="contact">
+
+            <div class="pt-20 pb-40 bg-gradient-to-b from-black/50 to-cyan-800/20">
+
+                <div class="container px-6 mx-auto">
+
+                    <h2 class="mb-12 text-4xl font-bold text-center text-white">
+                        Get in Touch
+                    </h2>
+
+                    <div class="flex flex-col gap-12 md:flex-row">
+
+                        <!-- Links -->
+                        <div class="md:w-1/2 space-y-8 max-w-max mx-auto">
+
+                            <div class="flex items-center">
+                                <a href="www.linkedin.com/in/talish-bukhari-93237437b"
+                                    class="flex items-center justify-center rounded-full gap-4">
+
+                                    <svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="-1 -1 32 32"
+                                        class="size-5">
+                                        <path
+                                            d="M28.56925 8.969249999999999v12.0615c0 4.163375 -3.3751249999999997 7.5385 -7.5385 7.5385H8.969249999999999c-4.163375 0 -7.5385 -3.3751249999999997 -7.5385 -7.5385V8.969249999999999c0 -4.163375 3.3751249999999997 -7.5385 7.5385 -7.5385h12.0615c4.163375 0 7.5385 3.3751249999999997 7.5385 7.5385Z"
+                                            stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                            stroke-width="2"></path>
+                                        <path d="M7.4615 22.5385V11.984625" stroke="currentColor" stroke-linecap="round"
+                                            stroke-linejoin="round" stroke-width="2"></path>
+                                        <path
+                                            d="M13.492249999999999 22.5385v-4.9m0 -5.653875v5.653875m0 0c0 -5.653875 9.04625 -5.653875 9.04625 0v4.9"
+                                            stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                            stroke-width="2"></path>
+                                        <path d="m7.4615 7.476625 0.015125 -0.01675" stroke="currentColor"
+                                            stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+                                    </svg>
+
+                                    <span>LinkedIn</span>
+
+                                </a>
+                            </div>
+
+                            <div class="flex items-center">
+
+                                <a href="https://github.com/talish-bukhari"
+                                    class="flex items-center justify-center rounded-full gap-4">
+
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        class="size-5">
+                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                            d="M11.996 1.771a10.486 10.486 0 0 0 -3.314 20.438c0.523 0.092 0.69 -0.216 0.69 -0.493 0 -0.25 0.005 -0.945 0 -1.824 -2.919 0.633 -3.522 -1.381 -3.522 -1.381a2.775 2.775 0 0 0 -1.163 -1.534c-0.952 -0.65 0.071 -0.638 0.071 -0.638a2.201 2.201 0 0 1 1.607 1.08 2.232 2.232 0 0 0 3.05 0.871c0.05 -0.53 0.285 -1.025 0.666 -1.397 -2.328 -0.266 -4.776 -1.165 -4.776 -5.184a4.055 4.055 0 0 1 1.08 -2.815 3.762 3.762 0 0 1 0.103 -2.774s0.882 -0.282 2.883 1.076a9.924 9.924 0 0 1 5.252 0c2.007 -1.357 2.881 -1.076 2.881 -1.076 0.387 0.878 0.424 1.87 0.104 2.774a4.05 4.05 0 0 1 1.079 2.816c0 4.03 -2.452 4.916 -4.789 5.174a2.487 2.487 0 0 1 0.718 1.933v2.904c0 0.28 0.17 0.59 0.702 0.488a10.487 10.487 0 0 0 -3.322 -20.438v0Z"
+                                            stroke-width="1.5"></path>
+                                    </svg>
+
+                                    <span>GitHub</span>
+
+                                </a>
+
+                            </div>
+
+
+                            <div class="flex items-center">
+
+                                <a href="https://www.upwork.com/freelancers/~01ab4b64bdcb73d78b"
+                                    class="flex items-center justify-center rounded-full gap-4">
+
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" class="size-5">
+                                        <path
+                                            d="M12.258658346333855 8.959024024961c-1.2321572542901718 0 -2.045429017160686 -0.9529010920436819 -2.273243057722309 -1.3203419656786273 0.29150452418096723 -2.334484867394696 1.146421216848674 -3.0718202808112327 2.273243057722309 -3.0718202808112327 1.1145759750390016 0 1.9817410296411857 0.8916592823712948 1.9817410296411857 2.197306708268331s-0.8671650546021841 2.197306708268331 -1.9817410296411857 2.197306708268331Zm0 -5.825188143525741c-2.0062352574102964 0 -3.1306109204368178 1.3080960998439939 -3.4539581903276133 2.6553834633385334 -0.36499469578783156 -0.6858907956318253 -0.6344511700468018 -1.6044979719188766 -0.8451195007800312 -2.4569659906396257h-2.7729672386895476v3.4539606864274575c0 1.2517541341653666 -0.5707606864274571 2.1801609984399377 -1.6853366614664587 2.1801609984399377s-1.753924492979719 -0.9259556942277691 -1.753924492979719 -2.1801609984399377l0.01224836193447738 -3.4539606864274575H0.16v3.4539606864274575c0 1.006794383775351 0.32579843993759755 1.9205017160686428 0.9210558502340094 2.5745472698907954 0.6124056162246491 0.6736449297971919 1.4501741029641186 1.0239400936037442 2.4202209048361936 1.0239400936037442 1.9302989079563182 0 3.2775887675507023 -1.479568174726989 3.2775887675507023 -3.59848736349454v-2.3222365054602183c0.20086864274570984 0.7642808112324493 0.6809934477379095 2.231600624024961 1.5996006240249612 3.5176511700468023l-0.8573653666146646 4.884535413416537h1.6265435257410297l0.5658633385335413 -3.461309204368175c0.1861691107644306 0.15432636505460218 0.38458907956318256 0.2939556942277691 0.59280624024961 0.4164368174726989 0.5438152886115445 0.34294414976599064 1.1684692667706709 0.5364642745709829 1.8102689547581903 0.5585123244929797 0 0 0.09798439937597504 0.004899843993759751 0.14942652106084242 0.004899843993759751 1.9890895475819033 0 3.573990639625585 -1.540809984399376 3.573990639625585 -3.6205354134165364s-1.5873522620904836 -3.627883931357254 -3.5764418096723873 -3.627883931357254Z"
+                                            fill="#ffffff" stroke-width="0.5"></path>
+                                    </svg>
+
+                                    <span>Upwork</span>
+
+                                </a>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- Contact Info Section -->
+                        <div class="md:w-1/2 space-y-4 max-w-max mx-auto">
+
+                            <div class="flex items-center">
+                                <div class="flex items-center justify-center w-10 h-10 mr-4 rounded-full bg-primary">
+                                    <svg class="w-5 h-5 text-dark" xmlns="http://www.w3.org/2000/svg"
+                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round">
+                                        <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+                                        <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                                    </svg>
+                                </div>
+                                <a href="mailto:talish.bukhari1@gmail.com"
+                                    class="text-white hover:underline">talish.bukhari1@gmail.com</a>
+                            </div>
+
+                            <div class="flex items-center">
+                                <div class="flex items-center justify-center w-10 h-10 mr-4 rounded-full bg-primary">
+                                    <svg class="w-5 h-5 text-dark" xmlns="http://www.w3.org/2000/svg"
+                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path>
+                                        <circle cx="12" cy="10" r="3"></circle>
+                                    </svg>
+                                </div>
+                                <span class="text-white">Multan, Punjab, Pakistan</span>
+                            </div>
+
+                            <div class="flex items-center">
+                                <div class="flex items-center justify-center w-10 h-10 mr-4 rounded-full bg-primary">
+                                    <svg class="w-5 h-5 text-dark" xmlns="http://www.w3.org/2000/svg"
+                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round">
+                                        <path
+                                            d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                                        </path>
+                                    </svg>
+                                </div>
+                                <a href="tel:+88018-11797089" class="text-white hover:underline">+92 (313) 610-5951</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+</body>
+
+</html>
